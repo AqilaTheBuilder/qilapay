@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+/*
+ * QilaPay design language v2: "Trustful Blue"
+ * White + blue system with a light blue highlight for energy.
+ * One deep-navy contrast section for premium/security feel.
+ * No images: all visuals are CSS (gradients, grids) so the
+ * landing looks rich without assets.
+ */
+
+@theme {
+  --color-background: #f6f8fb;
+  --color-surface: #ffffff;
+  --color-ink: #0e152b;
+  --color-muted: #5b6478;
+  --color-line: #e4e8f0;
+
+  /* Trust blue: primary action plus brand */
+  --color-primary: #2447ff;
+  --color-primary-dark: #1a35cc;
+  --color-primary-soft: #e7ecff;
+  --color-primary-ink: #0a1430;
+
+  /* Light blue highlight: soft emphasis, never body text */
+  --color-accent: #bcd9ff;
+  --color-accent-deep: #122f68;
+  --color-accent-soft: #e3efff;
+
+  /* Deep navy: one contrast section only */
+  --color-night: #0a1430;
+  --color-night-soft: #131f45;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Arial, sans-serif;
+
+  --animate-float: float 7s ease-in-out infinite;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+:root {
+  --container-width: 1160px;
+  --radius-lg: 28px;
+  --radius-md: 20px;
+  --radius-sm: 14px;
+  --shadow-lg: 0 18px 50px rgba(10, 20, 48, 0.12);
+  --shadow-sm: 0 4px 14px rgba(10, 20, 48, 0.06);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-background);
+  color: var(--color-ink);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Reusable layout container */
+.qila-container {
+  width: min(var(--container-width), calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+/* Dotted grid texture. Used behind the hero visual instead of images */
+.qila-dots {
+  background-image: radial-gradient(
+    rgba(36, 71, 255, 0.16) 1.5px,
+    transparent 1.5px
+  );
+  background-size: 18px 18px;
+}
+
+.qila-dots-light {
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.22) 1.5px,
+    transparent 1.5px
+  );
+  background-size: 20px 20px;
+}

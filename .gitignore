@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Env files (frontend team: never commit real secrets)
+.env*.local
+.env
+
+# Legacy static prototype (kept for reference, not part of the Next build)
+legacy-preview/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+AGENTS.md
