@@ -1,5 +1,5 @@
 /**
- * Formatting helpers shared across landing + future dashboard/pay pages.
+ * Formatting helpers shared across landing and app screens.
  * Keep this file pure (no React) so it stays testable.
  */
 
@@ -22,4 +22,15 @@ export function formatTransferRoute(
     receiveAmount,
     receiveCurrency,
   )}`;
+}
+
+/** Compact USD for meters and badges, e.g. 2500 -> "$2,500". */
+export function formatUsdShort(amount: number): string {
+  return `$${Math.round(amount).toLocaleString("en-US")}`;
+}
+
+/** Shorten a wallet address for display, e.g. "0x7f…Q2a". */
+export function shortenAddress(address: string): string {
+  if (address.length <= 12) return address;
+  return `${address.slice(0, 4)}…${address.slice(-3)}`;
 }

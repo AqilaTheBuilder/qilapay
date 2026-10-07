@@ -15,7 +15,8 @@ export const metadata: Metadata = {
 
 /**
  * Root layout.
- * Keeps header/footer mounted across routes so navigation feels instant.
+ * The header is a fixed floating capsule, so main carries top padding.
+ * The footer hides itself for signed-in users (see SiteFooter).
  * Page content is injected via `children`.
  */
 export default function RootLayout({
@@ -28,7 +29,7 @@ export default function RootLayout({
       <body>
         <div className="flex min-h-screen flex-col">
           <SiteHeader />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 pt-[92px]">{children}</main>
           <SiteFooter />
         </div>
       </body>

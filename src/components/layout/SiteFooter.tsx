@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { ROUTES, SITE } from "@/lib/site";
+import { useSession } from "@/lib/auth/useSession";
 
 /** Footer columns. Add legal and product links as routes appear. */
 const COLUMNS = [
@@ -22,9 +25,14 @@ const COLUMNS = [
 ] as const;
 
 /**
- * Footer with brand block plus link columns.
+ * Pre-login footer. Hidden for signed-in users: inside the app the footer
+ * is noise, and its links duplicate the navbar tabs.
  */
 export function SiteFooter() {
+  const { session } = useSession();
+
+  if (session !== null) return null;
+
   return (
     <footer className="border-t border-line bg-surface pt-12 text-muted">
       <div className="qila-container grid gap-10 pb-10 md:grid-cols-[1.2fr_2fr]">

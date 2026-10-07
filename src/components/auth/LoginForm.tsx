@@ -1,44 +1,61 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/Button";
+import { getApi } from "@/lib/api";
+import { ROUTES } from "@/lib/site";
 
 type LoginFormProps = {
   mode: "login" | "signup";
 };
 
 /**
- * Frontend-only auth form (no backend yet).
- * Keeps all interactive state isolated so page.tsx stays a Server Component.
- * TODO(auth): replace handleSubmit with a Server Action / API call.
+ * Auth form backed by QilaApi. Today that is the mock adapter
+ * (localStorage session). When the backend lands, this file does not
+ * change: getApi() returns the HTTP client instead.
  */
 export function LoginForm({ mode }: LoginFormProps) {
-  const [notice, setNotice] = useState<string | null>(null);
+  const router = useRouter();
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    setError(null);
     const data = new FormData(event.currentTarget);
+    const name = String(data.get("name") ?? "").trim();
     const email = String(data.get("email") ?? "").trim();
+    const password = String(data.get("password") ?? "").trim();
 
-    if (!email) {
-      setNotice("Please enter your email to continue.");
+    if (!email || !password) {
+      setError("Please enter both email and password.");
       return;
     }
-    setNotice(
-      mode === "signup"
-        ? `Demo only. Account creation for ${email} will be wired to the backend next.`
-        : `Demo only. Login for ${email} will be wired to the backend next.`,
-    );
+
+    setLoading(true);
+    try {
+      if (mode === "signup") {
+        await getApi().register(name, email);
+      } else {
+        await getApi().login(email);
+      }
+      router.push(ROUTES.dashboard);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Sign in failed.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
     <form onSubmit={handleSubmit} className="grid gap-4" aria-label={`${mode} form`}>
-      {notice ? (
+      {error ? (
         <div
-          role="status"
-          className="rounded-xl border border-line bg-background px-3 py-2 text-sm font-semibold text-ink"
+          role="alert"
+          className="rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-sm font-semibold text-red-700"
         >
-          {notice}
+          {error}
         </div>
       ) : null}
 
@@ -86,8 +103,12 @@ export function LoginForm({ mode }: LoginFormProps) {
         />
       </div>
 
-      <Button type="submit" size="lg" className="w-full">
-        {mode === "signup" ? "Create account" : "Log in"}
+      <Button type="submit" size="lg" className="w-full" disabled={loading}>
+        {loading
+          ? "Please wait…"
+          : mode === "signup"
+            ? "Create account"
+            : "Log in"}
       </Button>
     </form>
   );

@@ -29,6 +29,8 @@ type ButtonProps = {
   href?: string;
   className?: string;
   type?: "button" | "submit";
+  onClick?: () => void;
+  disabled?: boolean;
 };
 
 /**
@@ -42,9 +44,12 @@ export function Button({
   href,
   className = "",
   type = "button",
+  onClick,
+  disabled = false,
 }: ButtonProps) {
   const styles = [
     "inline-flex items-center justify-center rounded-full border font-bold transition-all duration-150 active:scale-[0.98]",
+    "disabled:cursor-not-allowed disabled:opacity-50",
     VARIANT_STYLES[variant],
     SIZE_STYLES[size],
     className,
@@ -59,7 +64,7 @@ export function Button({
   }
 
   return (
-    <button type={type} className={styles}>
+    <button type={type} onClick={onClick} disabled={disabled} className={styles}>
       {children}
     </button>
   );
