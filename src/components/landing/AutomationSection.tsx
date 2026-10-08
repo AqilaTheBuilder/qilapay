@@ -27,12 +27,12 @@ export function AutomationSection() {
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10"
       >
-        <div className="absolute left-1/2 top-0 h-[280px] w-[720px] -translate-x-1/2 rounded-full bg-accent-soft blur-3xl" />
+        <div className="absolute left-1/2 top-0 h-70 w-180 -translate-x-1/2 rounded-full bg-accent-soft blur-3xl" />
       </div>
 
       <div className="qila-container grid items-center gap-12 lg:grid-cols-2">
         {/* Schedule card first on mobile for story impact */}
-        <div className="relative order-1 mx-auto w-full max-w-[440px] lg:order-none">
+        <div className="relative order-1 mx-auto w-full max-w-110 lg:order-0">
           <div className="rounded-[28px] border border-line bg-surface p-6 shadow-[0_18px_50px_rgba(10,20,48,0.12)]">
             <div className="flex items-center justify-between gap-3">
               <div>
@@ -94,7 +94,7 @@ export function AutomationSection() {
           </div>
         </div>
 
-        <div className="order-2 lg:order-none">
+        <div className="order-2 lg:order-0">
           <Eyebrow tone="blue">AutoTransfer: set and forget</Eyebrow>
           <SectionHeading
             title="College support, on AutoTransfer."

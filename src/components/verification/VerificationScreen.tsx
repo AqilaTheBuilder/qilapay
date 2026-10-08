@@ -56,7 +56,7 @@ export function VerificationScreen() {
 
   if (!account) {
     return (
-      <Card className="mx-auto mt-10 max-w-[480px] text-center">
+      <Card className="mx-auto mt-10 max-w-120 text-center">
         <h1 className="text-2xl font-extrabold tracking-tight">Sign in first</h1>
         <p className="mt-2 text-muted">Verification needs a session.</p>
         <Button href={ROUTES.login} size="lg" className="mt-5">
@@ -69,7 +69,7 @@ export function VerificationScreen() {
   const verified = account.tier === "verified";
 
   return (
-    <div className="mx-auto grid max-w-[720px] gap-4">
+    <div className="mx-auto grid max-w-180 gap-4">
       <div className="flex items-center gap-2">
         <h1 className="text-3xl font-extrabold tracking-tight">Verification</h1>
         <TierBadge tier={account.tier} />

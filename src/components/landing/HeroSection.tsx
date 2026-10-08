@@ -25,8 +25,8 @@ export function HeroSection() {
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10"
       >
-        <div className="absolute -top-32 right-[-10%] h-[420px] w-[420px] rounded-full bg-primary-soft blur-3xl" />
-        <div className="absolute left-[-8%] top-40 h-[300px] w-[300px] rounded-full bg-accent-soft blur-3xl" />
+        <div className="absolute -top-32 right-[-10%] h-105 w-105 rounded-full bg-primary-soft blur-3xl" />
+        <div className="absolute left-[-8%] top-40 h-75 w-75 rounded-full bg-accent-soft blur-3xl" />
         <div className="qila-dots absolute right-[8%] top-10 hidden h-40 w-64 opacity-70 lg:block" />
       </div>
 
@@ -38,19 +38,19 @@ export function HeroSection() {
           </Eyebrow>
           <h1
             id="hero-title"
-            className="max-w-[620px] text-[2.9rem] font-extrabold leading-[0.98] tracking-[-0.04em] sm:text-7xl"
+            className="max-w-155 text-[2.9rem] font-extrabold leading-[0.98] tracking-[-0.04em] sm:text-7xl"
           >
             Send money home.{" "}
             <span className="relative inline-block">
               <span className="relative z-10">Keep control</span>
               <span
                 aria-hidden
-                className="absolute inset-x-[-4px] bottom-1 top-[55%] -z-0 rounded-md bg-accent"
+                className="absolute -inset-x-1 bottom-1 top-[55%] z-0 rounded-md bg-accent"
               />
             </span>{" "}
             of it.
           </h1>
-          <p className="mt-5 max-w-[540px] text-lg text-muted sm:text-xl">
+          <p className="mt-5 max-w-135 text-lg text-muted sm:text-xl">
             {SITE.description} Set an AutoTransfer for family (for example,
             $500 a month), and QilaPay routes it while you keep full custody
             of your money.
@@ -72,7 +72,7 @@ export function HeroSection() {
                 <dd className="text-[1.7rem] font-extrabold tracking-tight">
                   {point.value}
                 </dd>
-                <dd className="max-w-[140px] text-sm font-semibold text-muted">
+                <dd className="max-w-35 text-sm font-semibold text-muted">
                   {point.label}
                 </dd>
               </div>

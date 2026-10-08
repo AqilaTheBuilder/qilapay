@@ -52,12 +52,12 @@ export function SiteHeader() {
       className={[
         "fixed inset-x-0 top-3 z-30 flex justify-center px-3",
         "transition-transform duration-300",
-        hidden ? "-translate-y-[140%]" : "translate-y-0",
+        hidden ? "translate-y-[-140%]" : "translate-y-0",
       ].join(" ")}
     >
       <div
         className={[
-          "flex w-full max-w-[1160px] items-center gap-2 rounded-full",
+          "flex w-full max-w-290 items-center gap-2 rounded-full",
           "border border-line bg-surface/85 shadow-[0_12px_40px_rgba(10,20,48,0.14)]",
           "backdrop-blur-xl transition-all duration-300",
           condensed ? "px-3 py-1.5" : "px-4 py-2.5",
@@ -100,11 +100,6 @@ export function SiteHeader() {
                 );
               })}
             </nav>
-            {isMockApi() ? (
-              <span className="hidden shrink-0 rounded-full border border-dashed border-line px-2.5 py-1 text-[11px] font-bold text-muted md:inline-block">
-                Demo
-              </span>
-            ) : null}
             <button
               type="button"
               onClick={handleLogout}

@@ -53,7 +53,7 @@ export function SendWizard({ account }: { account: UserAccount }) {
   }
 
   return (
-    <Card className="mx-auto max-w-[640px]">
+    <Card className="mx-auto max-w-160">
       <ol className="mb-6 flex gap-2" aria-label="Send progress">
         {STEP_ORDER.map((name, index) => (
           <li

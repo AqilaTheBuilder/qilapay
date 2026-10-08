@@ -31,7 +31,7 @@ export function ControlSection() {
     >
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="qila-dots-light absolute left-[6%] top-10 h-44 w-72 opacity-40" />
-        <div className="absolute -bottom-40 -right-24 h-[380px] w-[380px] rounded-full bg-primary opacity-40 blur-3xl" />
+        <div className="absolute -bottom-40 -right-24 h-95 w-95 rounded-full bg-primary opacity-40 blur-3xl" />
       </div>
 
       <div className="qila-container relative grid items-center gap-12 lg:grid-cols-2">
@@ -61,7 +61,7 @@ export function ControlSection() {
         </div>
 
         {/* CSS wallet visual */}
-        <div className="relative mx-auto w-full max-w-[420px]">
+        <div className="relative mx-auto w-full max-w-105">
           <div className="rounded-[28px] border border-white/15 bg-white/[0.07] p-6 shadow-[0_24px_70px_rgba(0,0,0,0.45)] backdrop-blur">
             <div className="flex items-center justify-between">
               <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-white/55">

@@ -54,7 +54,7 @@ export function LimitsCard({ account }: { account: UserAccount }) {
       {account.tier === "unverified" ? (
         <Link
           href={ROUTES.verification}
-          className="mt-4 inline-flex min-h-11 items-center justify-center rounded-full bg-night px-[18px] text-[15px] font-bold text-white"
+          className="mt-4 inline-flex min-h-11 items-center justify-center rounded-full bg-night px-4.5 text-[15px] font-bold text-white"
         >
           Verify to raise limits →
         </Link>

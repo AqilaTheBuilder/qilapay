@@ -40,7 +40,7 @@ export function WalletScreen() {
 
   if (!account) {
     return (
-      <Card className="mx-auto mt-10 max-w-[480px] text-center">
+      <Card className="mx-auto mt-10 max-w-120 text-center">
         <h1 className="text-2xl font-extrabold tracking-tight">Sign in first</h1>
         <p className="mt-2 text-muted">The wallet needs a session.</p>
         <Button href={ROUTES.login} size="lg" className="mt-5">

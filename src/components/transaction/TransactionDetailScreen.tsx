@@ -34,7 +34,7 @@ export function TransactionDetailScreen({ id }: { id: string }) {
 
   if (!transfer) {
     return (
-      <div className="mx-auto mt-10 max-w-[480px] text-center">
+      <div className="mx-auto mt-10 max-w-120 text-center">
         <h1 className="text-2xl font-extrabold tracking-tight">Not found</h1>
         <p className="mt-2 text-muted">No transfer with ID {id}.</p>
         <Button href={ROUTES.transactions} variant="secondary" size="lg" className="mt-5">
@@ -45,7 +45,7 @@ export function TransactionDetailScreen({ id }: { id: string }) {
   }
 
   return (
-    <div className="mx-auto grid max-w-[640px] gap-4">
+    <div className="mx-auto grid max-w-160 gap-4">
       <Link href={ROUTES.transactions} className="text-sm font-bold text-muted hover:text-ink">
         ← All transactions
       </Link>
